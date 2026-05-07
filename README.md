@@ -37,7 +37,7 @@ The system analyzes user-reported EV problems, retrieves relevant information fr
 # 📁 Project Structure
 
 ```plaintext
-VoltMind/
+VoltMind-LLM_Diagnostic_Assistant_for_EV_Technicians
 │
 ├── app/
 │   ├── main.py
