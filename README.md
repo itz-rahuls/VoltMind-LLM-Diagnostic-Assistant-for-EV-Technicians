@@ -1,4 +1,4 @@
-# VoltMind: LLM Diagnostic Assistant for EV Technicians
+# ⚡ VoltMind: LLM Diagnostic Assistant for EV Technicians
 
 VoltMind is an AI-powered EV diagnostic assistant designed to help EV technicians identify and troubleshoot electric vehicle issues using Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), FAISS vector search, BM25 retrieval, and automotive manuals.
 
@@ -37,7 +37,7 @@ The system analyzes user-reported EV problems, retrieves relevant information fr
 # 📁 Project Structure
 
 ```plaintext
-VoltMind-LLM_Diagnostic_Assistant_for_EV_Technicians
+VoltMind-LLM_Diagnostic_Assistant_for_EV_Technicians/
 │
 ├── app/
 │   ├── main.py
@@ -54,7 +54,8 @@ VoltMind-LLM_Diagnostic_Assistant_for_EV_Technicians
 │   │   ├── text_splitter.py
 │   │   ├── youtube_helper.py
 │   │   └── __init__.py
-│   
+│   │
+│   └── __init__.py
 │
 ├── data/
 │   └── manuals/
@@ -186,7 +187,7 @@ Steps:
 In the root project folder:
 
 ```plaintext
-VoltMind-LLM_Diagnostic_Assistant_for_EV_Technicians
+VoltMind-LLM_Diagnostic_Assistant_for_EV_Technicians/
 ```
 
 Create:
@@ -209,25 +210,65 @@ GEMINI_API_KEY=your_api_key_here
 
 After adding manuals, generate embeddings and build the FAISS database.
 
-Run:
+---
+
+## ▶️ Run Ingestion Pipeline
+
+Run the following command:
 
 ```bash
 python -m app.pipeline.ingestion
 ```
 
-This process:
+This process automatically:
 
-* Loads PDF manuals
-* Splits text into chunks
-* Creates embeddings
-* Builds FAISS vector database
-* Builds BM25 retrieval index
+* Loads EV manuals from `data/manuals/`
+* Splits documents into chunks
+* Creates sentence embeddings
+* Builds the FAISS vector database
+* Builds the BM25 retrieval index
+* Saves all indexes locally
 
-Generated files will be stored inside:
+---
+
+## 🧠 Expected Console Output
 
 ```plaintext
-vectorstore/
+Loading PDFs...
+Splitting into chunks...
+Creating embeddings...
+Building FAISS index...
+Saving vectorstore...
+Ingestion complete!
+Building BM25 index...
+BM25 index saved!
 ```
+
+---
+
+## 📂 Generated Files
+
+The following folders/files will be created automatically:
+
+```plaintext
+vectorstore/faiss_index/
+```
+
+and BM25 index files inside the project structure.
+
+---
+
+## ⚠️ Important
+
+You only need to run ingestion:
+
+* the first time setup
+* after adding new manuals
+* after changing datasets
+
+You do NOT need to run ingestion every time you launch the app.
+
+The chatbot directly loads the saved FAISS and BM25 indexes during runtime.
 
 ---
 
@@ -327,6 +368,7 @@ YouTube Repair Suggestions
 
 ---
 
+
 # 🚀 Future Improvements
 
 * 🎙️ Voice-based diagnostics
@@ -341,7 +383,7 @@ YouTube Repair Suggestions
 
 # 👨‍💻 Author
 
-Rahul
+Rahul S
 
 ---
 
@@ -354,4 +396,3 @@ MIT License
 # ⚡ VoltMind
 
 ### “Intelligence Behind Every Volt.”
-
