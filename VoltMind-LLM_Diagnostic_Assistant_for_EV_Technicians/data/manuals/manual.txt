@@ -1,0 +1,3 @@
+Create different folders like battery, brakes, charging, sensors etc and in each folder add manuals, pdfs, guides, research papers etc to it as per the body parts.
+Like brakes folder: add manuals related to brakes only.
+If you want to put other parts as well go ahead. 

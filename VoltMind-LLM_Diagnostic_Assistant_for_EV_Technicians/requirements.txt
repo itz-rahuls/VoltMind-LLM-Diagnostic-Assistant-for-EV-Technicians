@@ -1,0 +1,13 @@
+langchain
+langchain-community
+faiss-cpu
+sentence-transformers
+pypdf
+streamlit
+openai
+rank-bm25
+tqdm
+python-dotenv
+youtube-search-python
+youtube-transcript-api
+cryptography
